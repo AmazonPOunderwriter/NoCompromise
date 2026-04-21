@@ -4,7 +4,8 @@
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 import { auth } from "@/lib/auth";
-import { getCart, cartSubtotal } from "@/server/cart/cart";
+import { getCart } from "@/server/cart/cart";
+   import { cartSubtotal } from "@/lib/cart-helpers";
 import { generateOrderNumber } from "@/lib/utils";
 import { redirect } from "next/navigation";
 
