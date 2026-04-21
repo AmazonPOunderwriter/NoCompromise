@@ -67,7 +67,6 @@ export async function addToCart(input: {
   const cartId = await getOrCreateCartId();
   const qty = input.quantity ?? 1;
 
-  // Only allow adding APPROVED products — defensive check
   const product = await prisma.product.findUnique({ where: { id: input.productId } });
   if (!product || product.status !== "APPROVED") {
     throw new Error("Product not available.");
@@ -137,13 +136,4 @@ export async function mergeGuestCartIntoUser(userId: string) {
 
   cookieStore.delete(CART_COOKIE);
   return userCart;
-}
-
-export function cartSubtotal(
-  items: { quantity: number; product: { priceCents: number }; variant: { priceCents: number | null } | null }[],
-): number {
-  return items.reduce((sum, item) => {
-    const price = item.variant?.priceCents ?? item.product.priceCents;
-    return sum + price * item.quantity;
-  }, 0);
 }
