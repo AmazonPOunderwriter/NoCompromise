@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const serif = Fraunces({
   subsets: ["latin"],
