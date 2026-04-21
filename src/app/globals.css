@@ -1,0 +1,81 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* NoCompromise palette — warm neutrals, deep forest accent */
+    --background: 40 25% 98%;        /* warm white */
+    --foreground: 20 14% 10%;        /* near-black */
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 10%;
+
+    --primary: 145 25% 22%;          /* deep muted green */
+    --primary-foreground: 40 25% 98%;
+
+    --secondary: 35 15% 94%;         /* stone */
+    --secondary-foreground: 20 14% 10%;
+
+    --muted: 35 10% 92%;
+    --muted-foreground: 25 8% 40%;
+
+    --accent: 35 20% 90%;
+    --accent-foreground: 20 14% 10%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 145 25% 22%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 40 25% 95%;
+    --card: 20 12% 11%;
+    --card-foreground: 40 25% 95%;
+    --primary: 145 30% 55%;
+    --primary-foreground: 20 14% 8%;
+    --secondary: 20 10% 15%;
+    --secondary-foreground: 40 25% 95%;
+    --muted: 20 10% 15%;
+    --muted-foreground: 25 8% 60%;
+    --border: 20 10% 20%;
+    --input: 20 10% 20%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 { @apply font-serif tracking-tight; }
+}
+
+@layer components {
+  .container-prose { @apply mx-auto max-w-3xl px-6; }
+  .container-wide  { @apply mx-auto max-w-7xl px-6; }
+
+  .hairline { @apply border-t border-border/60; }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground;
+  }
+}
